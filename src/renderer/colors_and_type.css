@@ -1,0 +1,422 @@
+/* ============================================================
+   Anarchive — Design Tokens
+   Visual DNA: deep plum ink on warm paper, with vermillion accent.
+   Inspired by old archives, library catalog cards, art-book endpapers.
+   ============================================================ */
+
+/* ---- Webfonts ---- */
+/* Apple Garamond is the actual brand letterform (used for the logo and headings).
+   Times New Roman is a safe system fallback. Cormorant is removed in favour of
+   Apple Garamond. See README "Font substitutions". */
+@font-face {
+  font-family: "Apple Garamond";
+  src: url("fonts/AppleGaramond-Light.ttf") format("truetype");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Apple Garamond";
+  src: url("fonts/AppleGaramond-LightItalic.ttf") format("truetype");
+  font-weight: 300; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Apple Garamond";
+  src: url("fonts/AppleGaramond.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Apple Garamond";
+  src: url("fonts/AppleGaramond-Italic.ttf") format("truetype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Apple Garamond";
+  src: url("fonts/AppleGaramond-Bold.ttf") format("truetype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Apple Garamond";
+  src: url("fonts/AppleGaramond-BoldItalic.ttf") format("truetype");
+  font-weight: 700; font-style: italic; font-display: swap;
+}
+:root {
+  /* ============ BRAND-PURE (exact spec) ============ */
+  --ac-brand-orange:    #FF6B00;  /* vibrant brand orange */
+  --ac-brand-purple:    #4A0E7A;  /* deep brand purple */
+
+  /* ============ CORE PALETTE (full scales) ============ */
+  --ac-plum-900:        #1f0e2e;  /* wordmark — deepest ink */
+  --ac-plum-800:        #2a0e3f;  /* primary "ink" */
+  --ac-plum-700:        #4A0E7A;  /* the A inside the icon — brand purple */
+  --ac-plum-600:        #5a2a78;
+  --ac-plum-400:        #8a6aa6;
+  --ac-plum-200:        #d6c8e3;
+  --ac-plum-100:        #ebe2f3;
+  --ac-plum-50:         #f6f1fa;
+
+  --ac-vermillion-700:  #b34a02;
+  --ac-vermillion-600:  #e35d00;
+  --ac-vermillion-500:  #FF6B00;  /* primary orange (icon bg) — brand orange */
+  --ac-vermillion-400:  #ff8a33;
+  --ac-vermillion-300:  #ffa866;
+  --ac-vermillion-200:  #ffc899;
+  --ac-vermillion-100:  #ffe2cc;
+  --ac-vermillion-50:   #fff2e5;
+
+  /* ============ PAPER NEUTRALS (warm, slightly yellowed) ============ */
+  --ac-paper:           #faf7ee;  /* default page background */
+  --ac-paper-deep:      #f3ecda;  /* parchment — secondary surface */
+  --ac-paper-shadow:    #ebe2c8;  /* deeper paper, for sunken wells */
+  --ac-dust:            #d9d2c1;  /* hairline borders */
+  --ac-dust-strong:     #b6ad97;
+  --ac-stone:           #8a8270;  /* tertiary text */
+  --ac-graphite:        #5a5446;  /* secondary text */
+  --ac-ink-soft:        #4a3d5c;  /* purple-tinted body */
+  --ac-ink:             var(--ac-plum-800);
+
+  /* ============ SEMANTIC FOREGROUND ============ */
+  --ac-fg-1:            var(--ac-plum-900);   /* primary text */
+  --ac-fg-2:            var(--ac-ink-soft);   /* secondary text */
+  --ac-fg-3:            var(--ac-graphite);   /* tertiary */
+  --ac-fg-4:            var(--ac-stone);      /* hint / placeholder */
+  --ac-fg-inverse:      var(--ac-paper);
+  --ac-fg-accent:       var(--ac-vermillion-600);
+  --ac-fg-link:         var(--ac-plum-700);
+
+  /* ============ SEMANTIC SURFACE ============ */
+  --ac-bg-canvas:       var(--ac-paper);
+  --ac-bg-surface:      #fffdf6;            /* slightly brighter card */
+  --ac-bg-sunken:       var(--ac-paper-deep);
+  --ac-bg-ink:          var(--ac-plum-800);  /* dark surface */
+  --ac-bg-accent:       var(--ac-vermillion-500);
+  --ac-bg-accent-soft:  var(--ac-vermillion-50);
+  --ac-bg-tint:         var(--ac-plum-50);
+  --ac-border:          var(--ac-dust);
+  --ac-border-strong:   var(--ac-dust-strong);
+  --ac-border-ink:      var(--ac-plum-800);
+
+  /* ============ STATUS ============ */
+  --ac-success:         #6b7c3b;   /* muted olive — like a librarian's stamp */
+  --ac-success-soft:    #eef0dc;
+  --ac-warning:         #c98a1a;   /* amber */
+  --ac-warning-soft:    #fbf1d8;
+  --ac-danger:          #b53a1a;   /* rust red */
+  --ac-danger-soft:     #fadfd5;
+  --ac-info:            var(--ac-plum-600);
+  --ac-info-soft:       var(--ac-plum-50);
+
+  /* ============ DARK SURFACES (desktop app dark mode) ============ */
+  --ac-dark-canvas:     #15101c;  /* deepest — app background */
+  --ac-dark-surface:    #1d1729;  /* primary panels */
+  --ac-dark-surface-2:  #261e36;  /* elevated row, hovered card */
+  --ac-dark-sunken:     #110b1a;  /* input fields, search */
+  --ac-dark-border:     #2e2440;
+  --ac-dark-border-2:   #3d2f56;
+  --ac-dark-fg-1:       #f3eef9;
+  --ac-dark-fg-2:       #b9accd;
+  --ac-dark-fg-3:       #80738f;
+  --ac-dark-fg-4:       #5a4f6c;
+
+  /* ============ RADII ============ */
+  --ac-radius-xs:       3px;
+  --ac-radius-sm:       6px;
+  --ac-radius-md:       10px;
+  --ac-radius-lg:       16px;
+  --ac-radius-xl:       22px;       /* iOS-icon corner — matches logo squircle */
+  --ac-radius-pill:     999px;
+
+  /* ============ SHADOWS (soft, paper-on-paper) ============ */
+  --ac-shadow-1:        0 1px 0 rgba(31,14,46,0.04), 0 1px 2px rgba(31,14,46,0.06);
+  --ac-shadow-2:        0 1px 0 rgba(31,14,46,0.04), 0 4px 12px -2px rgba(31,14,46,0.10);
+  --ac-shadow-3:        0 2px 0 rgba(31,14,46,0.05), 0 12px 28px -6px rgba(31,14,46,0.14);
+  --ac-shadow-inset:    inset 0 1px 0 rgba(255,255,255,0.6), inset 0 -1px 0 rgba(31,14,46,0.05);
+  --ac-shadow-stamp:    0 0 0 1px rgba(67,18,92,0.10), 0 2px 0 rgba(67,18,92,0.06);
+
+  /* ============ SPACING (8pt + half-step) ============ */
+  --ac-space-0:         0;
+  --ac-space-1:         4px;
+  --ac-space-2:         8px;
+  --ac-space-3:         12px;
+  --ac-space-4:         16px;
+  --ac-space-5:         20px;
+  --ac-space-6:         24px;
+  --ac-space-8:         32px;
+  --ac-space-10:        40px;
+  --ac-space-12:        48px;
+  --ac-space-16:        64px;
+  --ac-space-20:        80px;
+  --ac-space-24:        96px;
+
+  /* ============ TYPE FAMILIES ============ */
+  /* --ac-font-brand: Apple Garamond — the actual letterform of the logo.
+     --ac-font-display: alias of brand (kept for editorial-display sites).
+     --ac-font-ui: highly legible sans for application UI text.
+     --ac-font-mono: code blocks, clipboard text snippets, keyboard shortcuts. */
+  --ac-font-brand:      "Apple Garamond", "Times New Roman", Times, Garamond, serif;
+  --ac-font-display:    var(--ac-font-brand);
+  --ac-font-serif:      "Lora", "Source Serif Pro", Georgia, serif;
+  --ac-font-ui:         "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Helvetica, Arial, sans-serif;
+  --ac-font-sans:       var(--ac-font-ui);
+  --ac-font-mono:       "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+
+  /* ============ TYPE SCALE (rem of 16px base) ============ */
+  --ac-text-xs:         12px;
+  --ac-text-sm:         13px;
+  --ac-text-base:       15px;
+  --ac-text-md:         17px;
+  --ac-text-lg:         20px;
+  --ac-text-xl:         26px;
+  --ac-text-2xl:        34px;
+  --ac-text-3xl:        46px;
+  --ac-text-4xl:        62px;
+  --ac-text-5xl:        82px;
+
+  /* ============ MOTION ============ */
+  --ac-ease-out:        cubic-bezier(0.22, 0.61, 0.36, 1);   /* soft settle */
+  --ac-ease-in-out:     cubic-bezier(0.65, 0, 0.35, 1);
+  --ac-ease-page:       cubic-bezier(0.32, 0.72, 0.18, 1);   /* page-turn feel */
+  --ac-dur-fast:        140ms;
+  --ac-dur-base:        220ms;
+  --ac-dur-slow:        420ms;
+  --ac-dur-pageturn:    640ms;
+}
+
+/* ===================== SEMANTIC ELEMENT STYLES ===================== */
+
+html, body, #root {
+  /* Match BrowserWindow backgroundColor so resize expansions never flash
+     white while Chromium repaints. The React app overrides this once mounted. */
+  background: #15101c;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  color: var(--ac-fg-1);
+  font-family: var(--ac-font-serif);
+  font-size: var(--ac-text-base);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, .ac-h1 {
+  font-family: var(--ac-font-brand);
+  font-weight: 400;
+  font-size: var(--ac-text-4xl);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--ac-fg-1);
+  margin: 0;
+}
+h2, .ac-h2 {
+  font-family: var(--ac-font-brand);
+  font-weight: 400;
+  font-size: var(--ac-text-3xl);
+  line-height: 1.1;
+  letter-spacing: -0.005em;
+  color: var(--ac-fg-1);
+  margin: 0;
+}
+h3, .ac-h3 {
+  font-family: var(--ac-font-brand);
+  font-weight: 700;
+  font-size: var(--ac-text-2xl);
+  line-height: 1.15;
+  color: var(--ac-fg-1);
+  margin: 0;
+}
+h4, .ac-h4 {
+  font-family: var(--ac-font-serif);
+  font-weight: 600;
+  font-size: var(--ac-text-xl);
+  line-height: 1.25;
+  color: var(--ac-fg-1);
+  margin: 0;
+}
+h5, .ac-h5 {
+  font-family: var(--ac-font-ui);
+  font-weight: 600;
+  font-size: var(--ac-text-md);
+  line-height: 1.3;
+  letter-spacing: 0;
+  color: var(--ac-fg-1);
+  margin: 0;
+}
+
+p, .ac-p {
+  font-family: var(--ac-font-serif);
+  font-size: var(--ac-text-base);
+  line-height: 1.6;
+  color: var(--ac-fg-2);
+  text-wrap: pretty;
+  margin: 0 0 1em;
+}
+
+.ac-lede {
+  font-family: var(--ac-font-display);
+  font-style: italic;
+  font-size: var(--ac-text-lg);
+  line-height: 1.45;
+  color: var(--ac-fg-2);
+}
+
+.ac-eyebrow {
+  font-family: var(--ac-font-ui);
+  font-size: var(--ac-text-xs);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ac-fg-3);
+}
+
+.ac-meta {
+  font-family: var(--ac-font-ui);
+  font-size: var(--ac-text-sm);
+  color: var(--ac-fg-3);
+}
+
+.ac-ui {
+  font-family: var(--ac-font-ui);
+  font-size: var(--ac-text-base);
+  color: var(--ac-fg-1);
+}
+
+.ac-caption {
+  font-family: var(--ac-font-serif);
+  font-style: italic;
+  font-size: var(--ac-text-sm);
+  color: var(--ac-fg-3);
+}
+
+code, kbd, .ac-mono {
+  font-family: var(--ac-font-mono);
+  font-size: 0.92em;
+  color: var(--ac-plum-700);
+  background: var(--ac-plum-50);
+  padding: 0.1em 0.4em;
+  border-radius: var(--ac-radius-xs);
+}
+
+a, .ac-link {
+  color: var(--ac-fg-link);
+  text-decoration-color: var(--ac-vermillion-500);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color var(--ac-dur-fast) var(--ac-ease-out);
+}
+a:hover {
+  color: var(--ac-vermillion-600);
+}
+
+::selection {
+  background: var(--ac-vermillion-200);
+  color: var(--ac-plum-900);
+}
+
+/* ---- ProjectView button hover glow ---- */
+.ac-proj-btn {
+  position: relative;
+  transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.ac-proj-btn:hover {
+  transform: scale(1.045);
+  box-shadow: 0 0 0 1px rgba(255,138,51,0.40), 0 0 12px 2px rgba(255,138,51,0.28);
+  z-index: 2;
+}
+.ac-proj-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 0 1px rgba(255,138,51,0.22), 0 0 6px 1px rgba(255,138,51,0.16);
+}
+
+/* ---- Sidebar sub-item staggered entrance ---- */
+@keyframes acSubIn {
+  from { opacity: 0; transform: translateY(7px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)  scale(1); }
+}
+
+/* ---- Sidebar main item activation pop ---- */
+@keyframes acItemPop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.025) translateX(1px); }
+  100% { transform: scale(1); }
+}
+
+/* ---- DropOverlay slide-in ---- */
+@keyframes ac-drop-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ---- Easter egg: brand logo spin (1 turn + scale pulse) ---- */
+@keyframes acLogoSpin {
+  0%   { transform: rotate(0)       scale(1); }
+  45%  { transform: rotate(160deg)  scale(1.18); }
+  100% { transform: rotate(360deg)  scale(1); }
+}
+
+/* ---- Easter egg: AGG old soft pulse (kept for reference) ---- */
+@keyframes acAggPulse {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(255,138,51,0.35), 0 0 0 0 rgba(255,138,51,0.30); }
+  50%      { box-shadow: 0 0 0 1px rgba(255,138,51,0.55), 0 0 18px 3px rgba(255,138,51,0.30); }
+}
+
+/* ---- Easter egg: AGG dramatic card entrance ---- */
+@keyframes acAggReveal {
+  0%   { opacity: 0; transform: scale(1.12) translateY(-8px); filter: blur(6px) brightness(1.8); }
+  35%  { opacity: 1; transform: scale(0.97) translateY(3px); filter: blur(0) brightness(1.15); }
+  60%  { transform: scale(1.015) translateY(-1px); filter: brightness(1.04); }
+  100% { transform: scale(1) translateY(0); filter: brightness(1); }
+}
+
+/* ---- Easter egg: AGG strong pulsing halo ---- */
+@keyframes acAggGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1px rgba(255,138,51,0.55),
+      0 0 22px 4px rgba(255,138,51,0.28),
+      0 6px 24px rgba(0,0,0,0.28);
+  }
+  50% {
+    box-shadow:
+      0 0 0 2px rgba(255,138,51,0.80),
+      0 0 48px 14px rgba(255,138,51,0.42),
+      0 6px 24px rgba(0,0,0,0.36);
+  }
+}
+
+/* ---- Easter egg: AGG modal slam-in ---- */
+@keyframes acAggModalIn {
+  0%   { opacity: 0; transform: scale(1.06) translateY(-14px); filter: blur(4px); }
+  45%  { opacity: 1; transform: scale(0.985) translateY(4px); filter: blur(0); }
+  70%  { transform: scale(1.006) translateY(-1px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+/* ---- Easter egg: AGG backdrop flash ---- */
+@keyframes acAggBackdrop {
+  0%   { background: rgba(255,138,51,0.18); }
+  100% { background: rgba(0,0,0,0.72); }
+}
+
+/* ---- Easter egg: AGG stamp rotate-in ---- */
+@keyframes acAggStamp {
+  0%   { opacity: 0; transform: rotate(-18deg) scale(2.2); }
+  55%  { opacity: 1; transform: rotate(-18deg) scale(1.05); }
+  75%  { transform: rotate(-18deg) scale(0.95); }
+  100% { transform: rotate(-18deg) scale(1); }
+}
+
+/* ---- Easter egg: milestone badge pulse ---- */
+@keyframes acMilestoneBadge {
+  0%   { transform: scale(0.6); opacity: 0; }
+  30%  { transform: scale(1.15); opacity: 1; }
+  60%  { transform: scale(1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ---- Easter egg: empty-state quote crossfade ---- */
+@keyframes acQuoteFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
